@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int recursion(int num1, int num2)
+int recursion(int num1, int num2)       //재귀를 이용해서 두 수의 최대공약수를 구함.
 {
     if (num2 == 0)
         return num1;

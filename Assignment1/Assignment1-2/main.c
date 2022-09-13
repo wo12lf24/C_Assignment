@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void recursion(int num)
+void recursion(int num)     //재귀를 이용해서 10진수를 2진수로 표현.
 {
     if (num < 2)
     {

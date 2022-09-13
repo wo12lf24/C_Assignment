@@ -13,13 +13,13 @@ int main(void)
             count++;
         }
     }
-    if(count==0)
+    if(count==0)    //약수의 개수가 없다면
     {
-        printf("소수입니다.\n");
+        printf("소수입니다.\n");    //소수이고
     }
-    else
+    else            //약수의 개수가 있다면
     {
-        printf("소수가 아닙니다.\n");
+        printf("소수가 아닙니다.\n");//소수가 아닙니다.
     }
 
     return 0;
