@@ -1,3 +1,8 @@
+/*
+Assignment1-15
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 
 int main(void)
@@ -13,13 +18,13 @@ int main(void)
             count++;
         }
     }
-    if(count==0)    //약수의 개수가 없다면
+    if (count == 0) //약수의 개수가 없다면
     {
-        printf("소수입니다.\n");    //소수이고
+        printf("소수입니다.\n"); //소수이고
     }
-    else            //약수의 개수가 있다면
+    else //약수의 개수가 있다면
     {
-        printf("소수가 아닙니다.\n");//소수가 아닙니다.
+        printf("소수가 아닙니다.\n"); //소수가 아닙니다.
     }
 
     return 0;

@@ -1,3 +1,8 @@
+/*
+Assignment1-9
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 
 int main(void)
@@ -6,9 +11,9 @@ int main(void)
     printf("두 수를 입력하세요 : ");
     scanf("%d %d", &num1, &num2);
 
-    for (int i = num1; i <= num2; i++)      // 두 수를 입력받아 그 사이에 있는 숫자들을 출력합니다.
+    for (int i = num1; i <= num2; i++) // 두 수를 입력받아 그 사이에 있는 숫자들을 출력합니다.
     {
-        printf("%d ",i);
+        printf("%d ", i);
     }
     printf("\n");
 

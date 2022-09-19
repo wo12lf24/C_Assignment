@@ -1,3 +1,8 @@
+/*
+Assignment1-14
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 
 int main(void)
@@ -9,7 +14,7 @@ int main(void)
     for (int i = 2; i < num; i++)
     {
         printf("%d %% %d = %d\n", num, i, num % i);
-        if (num % i == 0)       // 나머지가 없으면 약수입니다.
+        if (num % i == 0) // 나머지가 없으면 약수입니다.
         {
             count++;
         }

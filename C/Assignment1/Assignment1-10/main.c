@@ -1,3 +1,8 @@
+/*
+Assignment1-10
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 
 int main(void)
@@ -13,7 +18,7 @@ int main(void)
         for (int j = 1; j <= i; j++)
         {
             printf("%d", j);
-            num += j;       // 그 값을 모두 더합니다.
+            num += j; // 그 값을 모두 더합니다.
             if (j != i)
             {
                 printf(" + ");

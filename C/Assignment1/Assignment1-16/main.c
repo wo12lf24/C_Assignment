@@ -1,3 +1,8 @@
+/*
+Assignment1-16
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 
 int main(void)
