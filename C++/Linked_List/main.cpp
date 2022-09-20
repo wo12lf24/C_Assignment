@@ -83,7 +83,7 @@ int main(int argc, char **argv)
     fstream fs;
 
     fs.open("C++\\Linked_List\\filesnumbers.csv", ios::in);
-    fseek(fs, 3, ios::beg);
+    fs.seekp(3, ios::beg);
 
     while (!fs.eof())
     {
