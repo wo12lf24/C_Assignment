@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "xlocnum": "cpp"
+    }
+}

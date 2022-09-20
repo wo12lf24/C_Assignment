@@ -432,21 +432,21 @@ char compare(char user_c, char cpu_c, int hand_num1, int hand_num2)
             return 'L';
          }
       }
-      else if(user_c=='j')// 끗인 경우
+      else if (user_c == 'j') // 끗인 경우
       {
          if (cpu_c == 'X' || cpu_c == 'Y') // cpu가 멍텅구리 구사또는 구사면 재경기
          {
             printf("재경기\n");
             return 'D';
          }
-         else if(cpu_c=='x')
+         else if (cpu_c == 'x')
          {
-            if(hand_num1>1)
+            if (hand_num1 > 1)
             {
                printf("유저 승리\n");
                return 'W';
             }
-            else if(hand_num1==1)
+            else if (hand_num1 == 1)
             {
                printf("재경기\n");
                return 'D';
@@ -457,9 +457,9 @@ char compare(char user_c, char cpu_c, int hand_num1, int hand_num2)
                return 'L';
             }
          }
-         else if(cpu_c=='y')
+         else if (cpu_c == 'y')
          {
-            if(hand_num1>0)
+            if (hand_num1 > 0)
             {
                printf("유저 승리\n");
                return 'W';
@@ -474,13 +474,54 @@ char compare(char user_c, char cpu_c, int hand_num1, int hand_num2)
          {
             printf("cpu 승리\n");
             return 'L';
-         } 
+         }
       }
    }
 }
 
+typedef struct
+{
+   char ID;
+   int win, draw, lose;
+
+} User;
+
+void Init(User *Player)
+{
+   Player->win = 0;
+   Player->draw = 0;
+   Player->lose = 0;
+}
+void WinorLose(User *Player, char compare)
+{
+   if (compare == 'W')
+   {
+      Player->win++;
+   }
+   else if (compare == 'D')
+   {
+      Player->draw++;
+   }
+   else
+   {
+      Player->lose++;
+   }
+}
+void WDL(User *Player)
+{
+   float win = Player->win;
+   float lose = Player->lose;
+
+   float win_rate = (win) / (win + lose);
+   printf("승 : %d번\n패 : %d번\n무 : %d\n승률 : %.1f\n",
+          Player->win, Player->lose, Player->draw, 100 * win_rate);
+}
+
 int main(void)
 {
+   User Player;
+   Init(&Player);
+
    int arr[20] = {1, 11, 2, 2, 3, 33, 4, 44, 5, 5,
                   6, 6, 7, 77, 8, 88, 9, 99, 10, 10}; // 11, 33, 44, 77, 88, 99는 특수패(광, 돼지 등등..)
 
@@ -535,25 +576,23 @@ int main(void)
       printf("당신의 패는\n");
       user_c = combi(arr[num1], arr[num3], phand_num1);
       printf("입니다.\n");
-      /*printf("1. 콜, 2. 다이 : ");
+      printf("1. 콜, 2. 다이 : ");
       scanf("%d", &select);
       if (select == 1)
       {
-         printf("\n컴퓨터의 패는\n"); //나중에 없애서 비밀로 할 내용
+         printf("\n컴퓨터의 패는\n");
          cpu_c = combi(arr[num2], arr[num4], phand_num2);
          printf("입니다.\n\n");
-         compare(user_c, cpu_c, hand_num1, hand_num2);
+         WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2));
       }
       else
       {
          printf("cpu 승리\n");
-      }*/
-      printf("컴퓨터의 패는\n"); //나중에 없애서 비밀로 할 내용
-      cpu_c = combi(arr[num2], arr[num4], phand_num2);
-      printf("입니다.\n");
-      compare(user_c, cpu_c, hand_num1, hand_num2);
+         WinorLose(&Player, 'L');
+      }
       printf("계속하시려면 1을 그만하려면 2를 눌러주세요.\n");
       scanf("%d", &select);
    }
+   WDL(&Player);
    return 0;
 }

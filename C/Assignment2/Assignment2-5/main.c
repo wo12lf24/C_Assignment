@@ -1,6 +1,11 @@
+/*
+Assignment2-5
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 
-void ASC(int *arr[10])
+void ASC(int arr[]) //오름차순으로 정렬하는 함수입니다.
 {
     for (int j = 0; j < 9; j++)
     {
@@ -15,13 +20,13 @@ void ASC(int *arr[10])
         }
     }
 }
-void DESC(int *arr[10])
+void DESC(int arr[]) //내림차순으로 정렬하는 함수입니다.
 {
     for (int j = 0; j < 9; j++)
     {
         for (int i = 0; i < 9; i++)
         {
-            if (arr[i+1] > arr[i])
+            if (arr[i + 1] > arr[i])
             {
                 int temp = arr[i];
                 arr[i] = arr[i + 1];
@@ -41,14 +46,14 @@ int main(void)
     printf("10개의 정수를 입력하세요.\n");
     int arr[10];
     int num;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 10; i++) // 10개의 정수를 입력받아 배열 arr에 저장합니다.
     {
         scanf("%d", &num);
         arr[i] = num;
     }
-    if (select == 1)
+    if (select == 1) // 1을 고르면 오름차순
     {
-        ASC(&arr);
+        ASC(arr);
         printf("ASC SORT : { ");
         for (int i = 0; i < 10; i++)
         {
@@ -58,14 +63,14 @@ int main(void)
             }
             else
             {
-                printf("%d", arr[i]);
+                printf("%d", arr[i]); //마지막은 쉼표가 없어서 따로해주었습니다.
             }
         }
         printf(" }\n");
     }
-    else if (select == 2)
+    else if (select == 2) // 2를 고르면 내림차순
     {
-        DESC(&arr);
+        DESC(arr);
         printf("ASC SORT : { ");
         for (int i = 0; i < 10; i++)
         {
@@ -75,7 +80,7 @@ int main(void)
             }
             else
             {
-                printf("%d", arr[i]);
+                printf("%d", arr[i]); //마지막은 쉼표가 없어서 따로해주었습니다.
             }
         }
         printf(" }\n");
