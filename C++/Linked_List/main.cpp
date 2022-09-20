@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string.h>
+#include <fstream>
 using namespace std;
 
 class Node
@@ -13,7 +15,7 @@ public:
     }
 };
 
-class List
+class Loaded_LIST
 {
 private:
     Node *head = nullptr;
@@ -29,15 +31,11 @@ public:
         else
         {
             Node *currnode = head;
-            while (1)
+            while (currnode->next != NULL)
             {
-                if (currnode->next == NULL)
-                {
-                    currnode->next = newnode;
-                    break;
-                }
                 currnode = currnode->next;
             }
+            currnode->next = newnode;
         }
     }
     void Find(int data)
@@ -50,54 +48,77 @@ public:
         else
         {
             currnode = head;
-            while (1)
+            while (currnode->data != data)
             {
-                if (currnode->data == data)
-                {
-                    cout << currnode->data;
-                    break;
-                }
-                else
-                {
-                    cout << currnode->data;
-                    currnode = currnode->next;
-                    if (currnode == NULL)
-                    {
-                        break;
-                    }
-                    cout << "->";
-                }
+                cout << currnode->data << "->";
+                currnode = currnode->next;
             }
-            cout << endl;
+            cout << currnode->data << endl;
+        }
+    }
+    void Delete(int data)
+    {
+        Node *currnode;
+        Node *prevnode;
+
+        if (head == NULL)
+        {
+        }
+        else
+        {
+            currnode = head;
+            while (currnode->data != data)
+            {
+                prevnode = currnode;
+                currnode = currnode->next;
+            }
+            prevnode->next = currnode->next;
         }
     }
 };
 
-int main(void)
+int main(int argc, char **argv)
 {
+    string str_buf;
+    fstream fs;
+
+    fs.open("C++\\Linked_List\\filesnumbers.csv", ios::in);
+    fseek(fs, 3, ios::beg);
+
+    while (!fs.eof())
+    {
+        getline(fs, str_buf, ',');
+        cout << str_buf << endl;
+    }
+    fs.close();
+
     int command = 0, num;
+    Loaded_LIST list;
 
-	List tree;
-
-	while (command != 4)
-	{
-		cout << "Enter Any Command(1:Insert, 2:Delete, 3:Find, 4:Exit): ";
-		cin >> command;
-		if (command == 1)
-		{
-			cin >> num;
-			tree.Insert(num);
-		}
-		else if (command == 3)
-		{
-			cin >> num;
-			tree.Find(num);
-		}
-		else
-		{
-			continue;
-		}
-	}
+    while (command != 4)
+    {
+        cout << "Enter Any Command(1:Insert, 2:Delete, 3:Find, 4:Exit): ";
+        cin >> command;
+        if (command == 1)
+        {
+            cin >> num;
+            list.Insert(num);
+        }
+        else if (command == 2)
+        {
+            cin >> num;
+            list.Delete(num);
+        }
+        else if (command == 3)
+        {
+            cin >> num;
+            list.Find(num);
+        }
+        else
+        {
+            continue;
+        }
+    }
 
     return 0;
 }

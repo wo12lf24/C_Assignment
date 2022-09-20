@@ -4,7 +4,11 @@
         "xstring": "cpp",
         "xutility": "cpp",
         "xlocnum": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "fstream": "cpp",
+        "iosfwd": "cpp",
+        "vector": "cpp",
+        "sstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
