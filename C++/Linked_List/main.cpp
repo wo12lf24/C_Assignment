@@ -7,11 +7,13 @@ class Node
 {
 public:
     int data;
+    string name;
     Node *next;
-    Node(int data)
+    Node(int data, string name)
     {
         this->next = NULL;
         this->data = data;
+        this->name = name;
     }
 };
 
@@ -21,9 +23,9 @@ private:
     Node *head = nullptr;
 
 public:
-    void Insert(int data)
+    void Insert(int data, string name)
     {
-        Node *newnode = new Node(data);
+        Node *newnode = new Node(data, name);
         if (head == NULL)
         {
             head = newnode;
@@ -38,7 +40,7 @@ public:
             currnode->next = newnode;
         }
     }
-    void Find(int data)
+    void Find(int data, string name)
     {
         Node *currnode;
         cout << "Path : ";
@@ -56,7 +58,7 @@ public:
             cout << currnode->data << endl;
         }
     }
-    void Delete(int data)
+    void Delete(int data, string name)
     {
         Node *currnode;
         Node *prevnode;
@@ -102,17 +104,17 @@ int main(int argc, char **argv)
         if (command == 1)
         {
             cin >> num;
-            list.Insert(num);
+            list.Insert(num, str_buf);
         }
         else if (command == 2)
         {
             cin >> num;
-            list.Delete(num);
+            list.Delete(num, str_buf);
         }
         else if (command == 3)
         {
             cin >> num;
-            list.Find(num);
+            list.Find(num, str_buf);
         }
         else
         {

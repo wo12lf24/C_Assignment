@@ -1,9 +1,14 @@
+/*
+Assignment2-9
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 
-int sum(int arr[5])
+int sum(int* arr)
 {
     int num = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++) //배열의 합을 모두 더해줍니다.
     {
         num += arr[i];
     }
