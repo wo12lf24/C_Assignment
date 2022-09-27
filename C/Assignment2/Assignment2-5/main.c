@@ -43,7 +43,7 @@ int main(void)
     int select;
     scanf("%d", &select);
 
-    printf("10개의 정수를 입력하세요.\n");
+    printf("\n10개의 정수를 입력하세요.\n");
     int arr[10];
     int num;
     for (int i = 0; i < 10; i++) // 10개의 정수를 입력받아 배열 arr에 저장합니다.
@@ -54,7 +54,7 @@ int main(void)
     if (select == 1) // 1을 고르면 오름차순
     {
         ASC(arr);
-        printf("ASC SORT : { ");
+        printf("\nASC SORT : { ");
         for (int i = 0; i < 10; i++)
         {
             if (i != 9)
@@ -71,7 +71,7 @@ int main(void)
     else if (select == 2) // 2를 고르면 내림차순
     {
         DESC(arr);
-        printf("ASC SORT : { ");
+        printf("\nDESC SORT : { ");
         for (int i = 0; i < 10; i++)
         {
             if (i != 9)

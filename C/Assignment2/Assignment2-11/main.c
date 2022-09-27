@@ -13,7 +13,7 @@ int main(void)
     float *pfrr = frr;
     for (int i = 0; i < 10; i++)
     {
-        printf("%.2f  ", *(pfrr + i));
+        printf("%.2f  ", *(pfrr + i)); //포인터 연산을 이용하였습니다.
     }
     printf("\n");
 

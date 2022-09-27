@@ -1,126 +1,139 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+#include <string>
 #include <string.h>
 #include <fstream>
 using namespace std;
 
-class Node
+class Loaded_LIST_Node
 {
 public:
-    int data;
-    string name;
-    Node *next;
-    Node(int data, string name)
-    {
-        this->next = NULL;
-        this->data = data;
-        this->name = name;
-    }
+	string data;
+	string name;
+	Loaded_LIST_Node *next;
+	Loaded_LIST_Node()
+	{
+		
+	}
+	Loaded_LIST_Node(string data, string name)
+	{
+		this->next = NULL;
+		this->data = data;
+		this->name = name;
+	}
 };
 
 class Loaded_LIST
 {
 private:
-    Node *head = nullptr;
+	Loaded_LIST_Node *head = nullptr;
 
 public:
-    void Insert(int data, string name)
-    {
-        Node *newnode = new Node(data, name);
-        if (head == NULL)
-        {
-            head = newnode;
-        }
-        else
-        {
-            Node *currnode = head;
-            while (currnode->next != NULL)
-            {
-                currnode = currnode->next;
-            }
-            currnode->next = newnode;
-        }
-    }
-    void Find(int data, string name)
-    {
-        Node *currnode;
-        cout << "Path : ";
-        if (head == NULL)
-        {
-        }
-        else
-        {
-            currnode = head;
-            while (currnode->data != data)
-            {
-                cout << currnode->data << "->";
-                currnode = currnode->next;
-            }
-            cout << currnode->data << endl;
-        }
-    }
-    void Delete(int data, string name)
-    {
-        Node *currnode;
-        Node *prevnode;
+	void Insert(string data, string name)
+	{
+		Loaded_LIST_Node *newnode = new Loaded_LIST_Node(data, name);
+		if (head == NULL)
+		{
+			head = newnode;
+		}
+		else
+		{
+			Loaded_LIST_Node *currnode = head;
+			while (currnode->next != NULL)
+			{
+				currnode = currnode->next;
+			}
+			currnode->next = newnode;
+		}
+	}
+	void Find(string data, string name)
+	{
+		Loaded_LIST_Node *currnode;
+		cout << "Path : ";
+		if (head == NULL)
+		{
+		}
+		else
+		{
+			currnode = head;
+			while (currnode->data != data)
+			{
+				cout << currnode->data << "->";
+				currnode = currnode->next;
+			}
+			cout << currnode->data << endl;
+		}
+	}
+	void Delete(string data, string name)
+	{
+		Loaded_LIST_Node *currnode;
+		Loaded_LIST_Node *prevnode;
 
-        if (head == NULL)
-        {
-        }
-        else
-        {
-            currnode = head;
-            while (currnode->data != data)
-            {
-                prevnode = currnode;
-                currnode = currnode->next;
-            }
-            prevnode->next = currnode->next;
-        }
-    }
+		if (head == NULL)
+		{
+		}
+		else
+		{
+			currnode = head;
+			while (currnode->data != data)
+			{
+				prevnode = currnode;
+				currnode = currnode->next;
+			}
+			prevnode->next = currnode->next;
+		}
+	}
 };
 
 int main(int argc, char **argv)
 {
-    string str_buf;
-    fstream fs;
+	Loaded_LIST list;
+	cout << "명령어를 입력하세요:";
+	char cmd[10];
+	cin >> cmd;
+	string name_buf;
+	string data_buf;
+	int count = 0;
+	if (strcmp(cmd, "LOAD") == 0)
+	{
+		fstream gs;
+		gs.open("C++\\Linked_List\\filesnumbers.csv", ios::in);
+		gs.seekp(3, ios::beg);
+		if (gs.fail())
+		{
+			cout << "========ERROR========" << endl;
+			cout << "100" << endl;
+			cout << "=====================" << endl;
+		}
+		else
+		{
+			cout << "=======LOAD========" << endl;
+			string temp = "0";
 
-    fs.open("C++\\Linked_List\\filesnumbers.csv", ios::in);
-    fs.seekp(3, ios::beg);
+			while (!gs.eof())
+			{
+				getline(gs, data_buf, ',');
+				getline(gs, name_buf, '\n');
+				if (data_buf.empty())
+					break;
 
-    while (!fs.eof())
-    {
-        getline(fs, str_buf, ',');
-        cout << str_buf << endl;
-    }
-    fs.close();
+				cout << name_buf << "/" << data_buf << endl;
+				list.Insert(data_buf, name_buf);
+				count++;
+			}
+			gs.close();
+			cout << "===================" << endl;
+		}
+	}
+	else if (strcmp(cmd, "ADD") == 0)
+	{
 
-    int command = 0, num;
-    Loaded_LIST list;
 
-    while (command != 4)
-    {
-        cout << "Enter Any Command(1:Insert, 2:Delete, 3:Find, 4:Exit): ";
-        cin >> command;
-        if (command == 1)
-        {
-            cin >> num;
-            list.Insert(num, str_buf);
-        }
-        else if (command == 2)
-        {
-            cin >> num;
-            list.Delete(num, str_buf);
-        }
-        else if (command == 3)
-        {
-            cin >> num;
-            list.Find(num, str_buf);
-        }
-        else
-        {
-            continue;
-        }
-    }
 
-    return 0;
+
+	}
+	list.Find("555", name_buf);
+	cout << "count개수: " << count << endl;
+
+	return 0;
 }

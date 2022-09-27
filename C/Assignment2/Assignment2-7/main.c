@@ -30,5 +30,6 @@ int main(void)
     {
         printf(" %d", B[i]);
     }
+    printf("\n");
     return 0;
 }
