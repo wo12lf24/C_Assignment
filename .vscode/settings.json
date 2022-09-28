@@ -10,7 +10,10 @@
         "vector": "cpp",
         "sstream": "cpp",
         "istream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "ostream": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

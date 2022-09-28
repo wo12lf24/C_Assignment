@@ -79,6 +79,27 @@ public:
 		{
 			currnode = currnode->next;
 		}
+		cout << currnode->name << currnode->data << endl;
+	}
+	void MODIFY(string data, string name, string directory)
+	{
+		Loaded_LIST_Node *currnode;
+		Loaded_LIST_Node *prevnode;
+		Loaded_LIST_Node *newnode = new Loaded_LIST_Node(data, name, directory);
+		if (head == NULL)
+		{
+		}
+		else
+		{
+			currnode = head;
+			while (currnode->name != name)
+			{
+				prevnode = currnode;
+				currnode = currnode->next;
+			}
+			prevnode->next = newnode;
+			newnode->next = currnode->next;
+		}
 	}
 	void Delete(string data, string name, string directory)
 	{
@@ -109,6 +130,7 @@ int main(int argc, char **argv)
 	string data;
 	string directory;
 	int count = 0;
+	int len = 0;
 	while (1)
 	{
 		cout << "명령어를 입력하세요:";
@@ -136,8 +158,8 @@ int main(int argc, char **argv)
 				{
 					getline(fs, data, ',');
 					getline(fs, name, '\n');
-					int len = name.length();
-					name = name.substr(0,len-4);
+					len = name.length();
+					name = name.substr(0, len - 4);
 					if (data.empty())
 						break;
 
@@ -151,11 +173,23 @@ int main(int argc, char **argv)
 		}
 		else if (strcmp(cmd, "MODIFY") == 0)
 		{
-			getline(cin, directory);
+			cin >> directory;
 			getline(cin, name);
-			getline(cin, data);
-
-			list.Find(name);
+			data = name.substr(name.length() - 3);
+			name = name.substr(2, name.length() - 7);
+			if (directory == "\0" || data == "\0" || name == "\0")
+			{
+				cout << "========ERROR========" << endl;
+				cout << "300" << endl;
+				cout << "====================" << endl;
+			}
+			else
+			{
+				list.MODIFY(data, name, directory);
+				cout << "=======MODIFY========" << endl;
+				cout << "SUCCESS" << endl;
+				cout << "====================" << endl;
+			}
 		}
 		else if (strcmp(cmd, "EXIT") == 0)
 		{
@@ -169,6 +203,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 	}
+	list.Find(name);
 	cout << "count개수: " << count << endl;
 
 	return 0;
