@@ -492,11 +492,12 @@ void Init(User *Player)
    Player->draw = 0;
    Player->lose = 0;
 }
-void WinorLose(User *Player, char compare)
+void WinorLose(User *Player, char compare, int *first)
 {
    if (compare == 'W')
    {
       Player->win++;
+      *first = 1;
    }
    else if (compare == 'D')
    {
@@ -505,6 +506,7 @@ void WinorLose(User *Player, char compare)
    else
    {
       Player->lose++;
+      *first = 0;
    }
 }
 void WDL(User *Player)
@@ -532,6 +534,7 @@ int main(void)
    int *phand_num1 = &hand_num1;
    int *phand_num2 = &hand_num2;
    int select = 1;
+   int first = 1;
    while (select == 1)
    {
       srand(time(0));
@@ -573,25 +576,54 @@ int main(void)
             break;
          }
       }
-      printf("당신의 패는\n");
-      user_c = combi(arr[num1], arr[num3], phand_num1);
-      printf("입니다.\n");
-      printf("1. 콜, 2. 다이 : ");
-      scanf("%d", &select);
-      if (select == 1)
+      if (first == 1) // user가 선패일 때
       {
-         printf("\n컴퓨터의 패는\n");
-         cpu_c = combi(arr[num2], arr[num4], phand_num2);
-         printf("입니다.\n\n");
-         WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2));
+         printf("당신의 패는\n");
+         user_c = combi(arr[num1], arr[num3], phand_num1);
+         printf("입니다.\n");
+         printf("1. 콜, 2. 다이 : ");
+         scanf("%d", &select);
+         if (select == 1)
+         {
+            printf("\n컴퓨터의 패는\n");
+            cpu_c = combi(arr[num2], arr[num4], phand_num2);
+            printf("입니다.\n\n");
+            WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
+         }
+         else
+         {
+            printf("cpu 승리\n");
+            WinorLose(&Player, 'L', &first);
+         }
+         printf("계속하시려면 1을 그만하려면 2를 눌러주세요.\n");
+         scanf("%d", &select);
+      }
+      else if (first == 0) // cpu가 선패일 때
+      {
+         printf("당신의 패는\n");
+         user_c = combi(arr[num2], arr[num4], phand_num1);
+         printf("입니다.\n");
+         printf("1. 콜, 2. 다이 : ");
+         scanf("%d", &select);
+         if (select == 1)
+         {
+            printf("\n컴퓨터의 패는\n");
+            cpu_c = combi(arr[num1], arr[num3], phand_num2);
+            printf("입니다.\n\n");
+            WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
+         }
+         else
+         {
+            printf("cpu 승리\n");
+            WinorLose(&Player, 'L', &first);
+         }
+         printf("계속하시려면 1을 그만하려면 2를 눌러주세요.\n");
+         scanf("%d", &select);
       }
       else
       {
-         printf("cpu 승리\n");
-         WinorLose(&Player, 'L');
+         continue;
       }
-      printf("계속하시려면 1을 그만하려면 2를 눌러주세요.\n");
-      scanf("%d", &select);
    }
    WDL(&Player);
    return 0;
