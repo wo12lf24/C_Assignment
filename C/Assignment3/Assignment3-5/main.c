@@ -5,7 +5,7 @@ Assignment3-5
 */
 #include <stdio.h>
 //*((*ppnum)+i) -> *(arr + i)
-void Max(int **ppnum)
+void Max(int **ppnum) // 입력된 수중 최대값을 출력하는 함수입니다.
 {
     int max = **ppnum;
     for (int i = 0; i < 5; i++)
@@ -23,7 +23,7 @@ void Max(int **ppnum)
 
 int main(void)
 {
-    int **ppnum;
+    int **ppnum;    //2중포인터와 크기가 5인 배열 선언
     int num;
     int arr[5];
     for (int i = 0; i < 5; i++)

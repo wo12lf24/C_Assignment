@@ -11,21 +11,21 @@ int main(void)
     int arr30[1][2];
     int arr40[1][3];
     int num;
-    printf("20대 연령의 윗몸 일으키키 횟수\n");
+    printf("20대 연령의 윗몸 일으키키 횟수\n"); // 20대 연령 4명의 윗몸일으키키 횟수
     for (int i = 0; i < 4; i++)
     {
         printf("%dth : ", i + 1);
         scanf("%d", &num);
         arr20[0][i] = num;
     }
-    printf("\n30대 연령의 윗몸 일으키키 횟수\n");
+    printf("\n30대 연령의 윗몸 일으키키 횟수\n"); // 30대 연령 4명의 윗몸일으키키 횟수
     for (int i = 0; i < 2; i++)
     {
         printf("%dth : ", i + 1);
         scanf("%d", &num);
         arr30[0][i] = num;
     }
-    printf("\n40대 연령의 윗몸 일으키키 횟수\n");
+    printf("\n40대 연령의 윗몸 일으키키 횟수\n"); // 40대 연령 4명의 윗몸일으키키 횟수
     for (int i = 0; i < 3; i++)
     {
         printf("%dth : ", i + 1);

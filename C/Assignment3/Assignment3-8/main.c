@@ -5,7 +5,7 @@ Assignment3-8
 */
 #include <stdio.h>
 
-int len(char fruit[20])
+int len(char fruit[20]) //과일 이름의 길이를 반환하는 함수입니다.
 {
     int count = 0;
     for (int i = 0; i < 20; i++)
@@ -28,7 +28,7 @@ int main(void)
     }
     int max = 0;
     printf("5개의 과일 이름 입력 : ");
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 5; i++) // 길이가 최대인 과일을 구하는 if문입니다.
     {
         for (int j = 0; j < 20; j++) // fruit 초기화
         {

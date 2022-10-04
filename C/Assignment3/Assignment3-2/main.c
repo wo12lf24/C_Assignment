@@ -5,7 +5,7 @@ Assignment3-2
 */
 #include <stdio.h>
 
-void add_matrix(int arr1[3][3], int arr2[3][3])
+void add_matrix(int arr1[3][3], int arr2[3][3]) // 행렬 x와 행렬 y의 합을 출력합니다.
 {
     printf("x+y 행렬:\n");
     for (int i = 0; i < 3; i++)
@@ -17,7 +17,7 @@ void add_matrix(int arr1[3][3], int arr2[3][3])
         printf("\n");
     }
 }
-void arr_print(int arr[3][3])
+void arr_print(int arr[3][3])   // 행렬을 출력합니다.
 {
     for (int i = 0; i < 3; i++)
     {
@@ -31,6 +31,7 @@ void arr_print(int arr[3][3])
 
 int main(void)
 {
+    // x행렬과 y행렬을 수기로 입력해준 다음에
     int x_arr[3][3] = {10, 20, 30, 40, 50, 60, 70, 80, 90};
     printf("x 행렬:\n");
     arr_print(x_arr);

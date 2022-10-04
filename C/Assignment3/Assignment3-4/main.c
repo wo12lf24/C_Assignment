@@ -5,7 +5,7 @@ Assignment3-4
 */
 #include <stdio.h>
 
-void val(int arr[3][3])
+void val(int arr[3][3])     //행렬의 값을 입력하는 함수입니다.
 {
     int num;
     for (int i = 0; i < 3; i++)
@@ -17,7 +17,7 @@ void val(int arr[3][3])
         }
     }
 }
-void arr_print(int arr[3][3])
+void arr_print(int arr[3][3])       // 행렬을 출력하느 함수입니다.
 {
     for (int i = 0; i < 3; i++)
     {
@@ -28,7 +28,7 @@ void arr_print(int arr[3][3])
         printf("\n");
     }
 }
-void mul(int arr1[3][3], int arr2[3][3])
+void mul(int arr1[3][3], int arr2[3][3])        //행렬 곱을 연산하는 함수입니다.
 {
     for (int i = 0; i < 3; i++)
     {

@@ -5,7 +5,7 @@ Assignment3-3
 */
 #include <stdio.h>
 
-void arr_print(int arr[4][4])
+void arr_print(int arr[4][4])       // 행렬을 출력하는 함수입니다.
 {
     for (int i = 0; i < 4; i++)
     {
@@ -16,7 +16,7 @@ void arr_print(int arr[4][4])
         printf("\n");
     }
 }
-void ch(int arr[4][4])
+void ch(int arr[4][4])          // 행렬의 행과 열을 바꿔서 출력하는 함수입니다.
 {
     for (int i = 0; i < 4; i++)
     {

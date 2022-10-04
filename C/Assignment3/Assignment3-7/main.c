@@ -5,9 +5,9 @@ Assignment3-7
 */
 #include <stdio.h>
 
-void print(int arr[4][5])
+void print(int arr[4][5]) // 1부터 20까지 한 줄씩 저장하고 출력하는 함수입니다.
 {
-    int num=0;
+    int num = 0;
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 5; j++)
