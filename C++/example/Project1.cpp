@@ -31,6 +31,7 @@ public:
 		if (root == NULL)
 		{
 			root = NewNode;
+
 		}
 		else
 		{
@@ -201,7 +202,6 @@ public:
 		}
 	}
 };
-
 int main(void)
 {
 	int command = 0, num;

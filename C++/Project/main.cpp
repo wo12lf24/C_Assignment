@@ -129,8 +129,13 @@ int main(int argc, char **argv)
 	string name;
 	string data;
 	string directory;
+	string command[100];
 	int count = 0;
 	int len = 0;
+	fstream tx;
+	tx.open("C:\\Users\\wo12l\\VScode\\C++\\Project\\command.txt");
+	
+
 	while (1)
 	{
 		cout << "명령어를 입력하세요:";
@@ -141,7 +146,7 @@ int main(int argc, char **argv)
 			list.Insert("img_files");
 
 			fstream fs;
-			fs.open("C:\\Users\\wo12l\\VScode\\C++\\Project\\filesnumbers.csv", ios::in);
+			fs.open("C:\\Users\\wo12l\\VScode\\C++\\Project\\img_files\\filesnumbers.csv", ios::in);
 			fs.seekp(3, ios::beg);
 			if (fs.fail())
 			{
@@ -170,6 +175,10 @@ int main(int argc, char **argv)
 				fs.close();
 				cout << "===================" << endl;
 			}
+		}
+		else if(strcmp(cmd, "ADD") == 0)
+		{
+
 		}
 		else if (strcmp(cmd, "MODIFY") == 0)
 		{
