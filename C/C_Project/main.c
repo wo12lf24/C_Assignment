@@ -1,7 +1,13 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
+/* rank
+38±¤¶¯: a, ±¤¶¯: b, Àå¶¯: C, ¶¯: c
+¸ÛÅÖ±¸¸® ±¸»ç: X, ±¸»ç: Y, ¾ÏÇà¾î»ç: x, ¶¯ÀâÀÌ: y
+¾Ë¸®: d, µ¶»ç: e, ±¸»æ: f, Àå»æ: g, Àå»ç: h, ¼¼·ú: i, ²ı: j
+*/
 char combi(int num1, int num2, int *hand_num)
 {
    char rank;
@@ -9,126 +15,105 @@ char combi(int num1, int num2, int *hand_num)
 
    if ((num1 == 33 && num2 == 88) || (num1 == 88 && num2 == 33))
    {
-      printf("38±¤¶¯");
       return 'a';
    }
    else if ((num1 == 11 && num2 == 33) || (num1 == 33 && num2 == 11))
    {
-      printf("13±¤¶¯");
+      *hand_num = 13;
       return 'b';
    }
    else if ((num1 == 11 && num2 == 88) || (num1 == 88 && num2 == 11))
    {
-      printf("18±¤¶¯");
+      *hand_num = 18;
       return 'b';
    }
    else if ((num1 == 44 && num2 == 77) || (num1 == 77 && num2 == 44))
    {
-      printf("¾ÏÇà¾î»ç");
       return 'x';
    }
    else if ((num1 == 44 && num2 == 99) || (num1 == 99 && num2 == 44))
    {
-      printf("¸ÛÅÍ±¸¸® ±¸»ç");
       return 'X';
    }
    else if ((num1 == 44 && num2 == 9) || (num1 == 4 && num2 == 99) || (num1 == 4 && num2 == 9))
    {
-      printf("±¸»ç");
       return 'Y';
    }
    else if ((num1 == 1 && num2 == 11) || (num1 == 11 && num2 == 1))
    {
-      printf("1¶¯");
       *hand_num = 1;
       return 'c';
    }
    else if (num1 == 2 && num2 == 2)
    {
-      printf("2¶¯");
       *hand_num = 2;
       return 'c';
    }
    else if ((num1 == 3 && num2 == 33) || (num1 == 33 && num2 == 3))
    {
-      printf("3¶¯");
       *hand_num = 3;
       return 'c';
    }
    else if ((num1 == 4 && num2 == 44) || (num1 == 44 && num2 == 4))
    {
-      printf("4¶¯");
       *hand_num = 4;
       return 'c';
    }
    else if (num1 == 5 && num2 == 5)
    {
-      printf("5¶¯");
       *hand_num = 5;
       return 'c';
    }
    else if (num1 == 6 && num2 == 6)
    {
-      printf("6¶¯");
       *hand_num = 6;
       return 'c';
    }
    else if ((num1 == 7 && num2 == 77) || (num1 == 77 && num2 == 7))
    {
-      printf("7¶¯");
       *hand_num = 7;
       return 'c';
    }
    else if ((num1 == 8 && num2 == 88) || (num1 == 88 && num2 == 8))
    {
-      printf("8¶¯");
       *hand_num = 8;
       return 'c';
    }
    else if ((num1 == 9 && num2 == 99) || (num1 == 99 && num2 == 9))
    {
-      printf("9¶¯");
       *hand_num = 9;
       return 'c';
    }
    else if (num1 == 10 && num2 == 10)
    {
-      printf("Àå¶¯");
       return 'C';
    }
    else if ((num1 == 33 && num2 == 77) || (num1 == 77 && num2 == 33))
    {
-      printf("¶¯ÀâÀÌ");
       return 'y';
    }
    else if ((num1 == 1 && num2 == 2) || (num1 == 2 && num2 == 1) || (num1 == 11 && num2 == 2) || (num1 == 2 && num2 == 11))
    {
-      printf("¾Ë¸®");
       return 'd';
    }
    else if ((num1 == 1 && num2 == 10) || (num1 == 10 && num2 == 1) || (num1 == 11 && num2 == 10) || (num1 == 10 && num2 == 11))
    {
-      printf("Àå»æ");
       return 'g';
    }
    else if ((num1 == 1 && num2 == 4) || (num1 == 4 && num2 == 1) || (num1 == 11 && num2 == 4) || (num1 == 4 && num2 == 11) || (num1 == 1 && num2 == 44) || (num1 == 44 && num2 == 1) || (num1 == 11 && num2 == 44) || (num1 == 44 && num2 == 11))
    {
-      printf("µ¶»ç");
       return 'e';
    }
    else if ((num1 == 4 && num2 == 10) || (num1 == 10 && num2 == 4) || (num1 == 44 && num2 == 10) || (num1 == 10 && num2 == 44))
    {
-      printf("Àå»ç");
       return 'h';
    }
    else if ((num1 == 1 && num2 == 9) || (num1 == 9 && num2 == 1) || (num1 == 11 && num2 == 9) || (num1 == 9 && num2 == 11) || (num1 == 1 && num2 == 99) || (num1 == 99 && num2 == 1) || (num1 == 11 && num2 == 99) || (num1 == 99 && num2 == 11))
    {
-      printf("±¸»æ");
       return 'f';
    }
    else if ((num1 == 4 && num2 == 6) || (num1 == 6 && num2 == 4) || (num1 == 44 && num2 == 6) || (num1 == 6 && num2 == 44))
    {
-      printf("¼¼·ú");
       return 'i';
    }
    else
@@ -144,27 +129,222 @@ char combi(int num1, int num2, int *hand_num)
       int num3 = num1 + num2;
       if (num3 == 10)
       {
-         printf("¸ÁÅë");
          *hand_num = 0;
       }
       else if (num3 < 10)
       {
-         printf("%d²ı", num3);
          *hand_num = num3;
       }
       else
       {
-         printf("%d²ı", num3 % 10);
          *hand_num = (num3 % 10);
       }
    }
    return 'j';
 }
-/* rank
-38±¤¶¯: a, ±¤¶¯: b, Àå¶¯: C, ¶¯: c
-¸ÛÅÖ±¸¸® ±¸»ç: X, ±¸»ç: Y, ¾ÏÇà¾î»ç: x, ¶¯ÀâÀÌ: y
-¾Ë¸®: d, µ¶»ç: e, ±¸»æ: f, Àå»æ: g, Àå»ç: h, ¼¼·ú: i, ²ı: j
-*/
+char hide_combi(int num1, int num2, int *hand_num)
+{
+   char rank;
+
+   if ((num1 == 33 && num2 == 88) || (num1 == 88 && num2 == 33))
+   {
+      return 'a';
+   }
+   else if ((num1 == 11 && num2 == 33) || (num1 == 33 && num2 == 11))
+   {
+      *hand_num = 13;
+      return 'b';
+   }
+   else if ((num1 == 11 && num2 == 88) || (num1 == 88 && num2 == 11))
+   {
+      *hand_num = 18;
+      return 'b';
+   }
+   else if ((num1 == 44 && num2 == 77) || (num1 == 77 && num2 == 44))
+   {
+      return 'x';
+   }
+   else if ((num1 == 44 && num2 == 99) || (num1 == 99 && num2 == 44))
+   {
+      return 'X';
+   }
+   else if ((num1 == 44 && num2 == 9) || (num1 == 4 && num2 == 99) || (num1 == 4 && num2 == 9))
+   {
+      return 'Y';
+   }
+   else if ((num1 == 1 && num2 == 11) || (num1 == 11 && num2 == 1))
+   {
+      *hand_num = 1;
+      return 'c';
+   }
+   else if (num1 == 2 && num2 == 2)
+   {
+      *hand_num = 2;
+      return 'c';
+   }
+   else if ((num1 == 3 && num2 == 33) || (num1 == 33 && num2 == 3))
+   {
+      *hand_num = 3;
+      return 'c';
+   }
+   else if ((num1 == 4 && num2 == 44) || (num1 == 44 && num2 == 4))
+   {
+      *hand_num = 4;
+      return 'c';
+   }
+   else if (num1 == 5 && num2 == 5)
+   {
+      *hand_num = 5;
+      return 'c';
+   }
+   else if (num1 == 6 && num2 == 6)
+   {
+      *hand_num = 6;
+      return 'c';
+   }
+   else if ((num1 == 7 && num2 == 77) || (num1 == 77 && num2 == 7))
+   {
+      *hand_num = 7;
+      return 'c';
+   }
+   else if ((num1 == 8 && num2 == 88) || (num1 == 88 && num2 == 8))
+   {
+      *hand_num = 8;
+      return 'c';
+   }
+   else if ((num1 == 9 && num2 == 99) || (num1 == 99 && num2 == 9))
+   {
+      *hand_num = 9;
+      return 'c';
+   }
+   else if (num1 == 10 && num2 == 10)
+   {
+      return 'C';
+   }
+   else if ((num1 == 33 && num2 == 77) || (num1 == 77 && num2 == 33))
+   {
+      return 'y';
+   }
+   else if ((num1 == 1 && num2 == 2) || (num1 == 2 && num2 == 1) || (num1 == 11 && num2 == 2) || (num1 == 2 && num2 == 11))
+   {
+      return 'd';
+   }
+   else if ((num1 == 1 && num2 == 10) || (num1 == 10 && num2 == 1) || (num1 == 11 && num2 == 10) || (num1 == 10 && num2 == 11))
+   {
+      return 'g';
+   }
+   else if ((num1 == 1 && num2 == 4) || (num1 == 4 && num2 == 1) || (num1 == 11 && num2 == 4) || (num1 == 4 && num2 == 11) || (num1 == 1 && num2 == 44) || (num1 == 44 && num2 == 1) || (num1 == 11 && num2 == 44) || (num1 == 44 && num2 == 11))
+   {
+      return 'e';
+   }
+   else if ((num1 == 4 && num2 == 10) || (num1 == 10 && num2 == 4) || (num1 == 44 && num2 == 10) || (num1 == 10 && num2 == 44))
+   {
+      return 'h';
+   }
+   else if ((num1 == 1 && num2 == 9) || (num1 == 9 && num2 == 1) || (num1 == 11 && num2 == 9) || (num1 == 9 && num2 == 11) || (num1 == 1 && num2 == 99) || (num1 == 99 && num2 == 1) || (num1 == 11 && num2 == 99) || (num1 == 99 && num2 == 11))
+   {
+      return 'f';
+   }
+   else if ((num1 == 4 && num2 == 6) || (num1 == 6 && num2 == 4) || (num1 == 44 && num2 == 6) || (num1 == 6 && num2 == 44))
+   {
+      return 'i';
+   }
+   else
+   {
+      if (num1 > 10)
+      {
+         num1 = num1 % 10;
+      }
+      if (num2 > 10)
+      {
+         num2 = num2 % 10;
+      }
+      int num3 = num1 + num2;
+      if (num3 == 10)
+      {
+         *hand_num = 0;
+      }
+      else if (num3 < 10)
+      {
+         *hand_num = num3;
+      }
+      else
+      {
+         *hand_num = (num3 % 10);
+      }
+   }
+   return 'j';
+}
+void print_card(char jokbo, int *hand_num)
+{
+   if (jokbo == 'a')
+   {
+      printf("38±¤¶¯");
+   }
+   else if (jokbo == 'b')
+   {
+      if (*hand_num == 13)
+      {
+         printf("13±¤¶¯");
+      }
+      else if (*hand_num == 18)
+      {
+         printf("18±¤¶¯");
+      }
+   }
+   else if (jokbo == 'x')
+   {
+      printf("¾ÏÇà¾î»ç");
+   }
+   else if (jokbo == 'X')
+   {
+      printf("¸ÛÅÍ±¸¸® ±¸»ç");
+   }
+   else if (jokbo == 'Y')
+   {
+      printf("±¸»ç");
+   }
+   else if (jokbo == 'y')
+   {
+      printf("¶¯ÀâÀÌ");
+   }
+   else if (jokbo == 'c')
+   {
+      printf("%d¶¯", *hand_num);
+   }
+   else if (jokbo == 'C')
+   {
+      printf("Àå¶¯");
+   }
+   else if (jokbo == 'd')
+   {
+      printf("¾Ë¸®");
+   }
+   else if (jokbo == 'e')
+   {
+      printf("µ¶»ç");
+   }
+   else if (jokbo == 'f')
+   {
+      printf("±¸»æ");
+   }
+   else if (jokbo == 'g')
+   {
+      printf("Àå»æ");
+   }
+   else if (jokbo == 'h')
+   {
+      printf("Àå»ç");
+   }
+   else if (jokbo == 'i')
+   {
+      printf("¼¼·ú");
+   }
+   else if (jokbo == 'j')
+   {
+      printf("%d²ı", *hand_num);
+   }
+}
 char compare(char user_c, char cpu_c, int hand_num1, int hand_num2)
 {
    if (user_c == cpu_c)
@@ -519,6 +699,281 @@ void WDL(User *Player)
           Player->win, Player->lose, Player->draw, 100 * win_rate);
 }
 
+char prob_call_by_level(char cpu_c, int *hand_num, int level) // return c(call) or d(die)
+{
+   int num = 0;
+   char call = 'c';
+   char die = 'd';
+   srand(time(0));
+   num = rand() % 100;
+   if (level == 1)
+   {
+      if (cpu_c == 'a' || cpu_c == 'X' || cpu_c == 'Y')
+      {
+         return call;
+      }
+      else if (cpu_c == 'b')
+      {
+         if (num >= 10)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'c')
+      {
+         if (*hand_num == 9 || *hand_num == 8 || *hand_num == 7)
+         {
+            if (num >= 15)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 6 || *hand_num == 5 || *hand_num == 4)
+         {
+            if (num >= 18)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 3 || *hand_num == 2 || *hand_num == 1)
+         {
+            if (num >= 20)
+            {
+               return call;
+            }
+            return die;
+         }
+      }
+      else if (cpu_c == 'd')
+      {
+         if (num >= 25)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'e')
+      {
+         if (num >= 26)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'f')
+      {
+         if (num >= 27)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'g')
+      {
+         if (num >= 28)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'h')
+      {
+         if (num >= 29)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'i')
+      {
+         if (num >= 30)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'j')
+      {
+         if (*hand_num == 9 || *hand_num == 8 || *hand_num == 7)
+         {
+            if (num >= 40)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 6 || *hand_num == 5 || *hand_num == 4)
+         {
+            if (num >= 45)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 3 || *hand_num == 2 || *hand_num == 1)
+         {
+            if (num >= 60)
+            {
+               return call;
+            }
+            return die;
+         }
+         else
+         {
+            if (num >= 90)
+            {
+               return call;
+            }
+            return die;
+         }
+      }
+      else if (cpu_c == 'x' || cpu_c == 'y')
+      {
+         if (num >= 90)
+         {
+            return call;
+         }
+         return die;
+      }
+   }
+   else if (level == 2)
+   {
+      if (cpu_c == 'a' || cpu_c == 'X' || cpu_c == 'Y')
+      {
+         return call;
+      }
+      else if (cpu_c == 'b')
+      {
+         if (num >= 10)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'c')
+      {
+         if (*hand_num == 9 || *hand_num == 8 || *hand_num == 7)
+         {
+            if (num >= 15)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 6 || *hand_num == 5 || *hand_num == 4)
+         {
+            if (num >= 18)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 3 || *hand_num == 2 || *hand_num == 1)
+         {
+            if (num >= 20)
+            {
+               return call;
+            }
+            return die;
+         }
+      }
+      else if (cpu_c == 'd')
+      {
+         if (num >= 25)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'e')
+      {
+         if (num >= 26)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'f')
+      {
+         if (num >= 27)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'g')
+      {
+         if (num >= 28)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'h')
+      {
+         if (num >= 29)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'i')
+      {
+         if (num >= 30)
+         {
+            return call;
+         }
+         return die;
+      }
+      else if (cpu_c == 'j')
+      {
+         if (*hand_num == 9 || *hand_num == 8 || *hand_num == 7)
+         {
+            if (num >= 40)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 6 || *hand_num == 5 || *hand_num == 4)
+         {
+            if (num >= 45)
+            {
+               return call;
+            }
+            return die;
+         }
+         else if (*hand_num == 3 || *hand_num == 2 || *hand_num == 1)
+         {
+            if (num >= 60)
+            {
+               return call;
+            }
+            return die;
+         }
+         else
+         {
+            if (num >= 90)
+            {
+               return call;
+            }
+            return die;
+         }
+      }
+      else if (cpu_c == 'x' || cpu_c == 'y')
+      {
+         if (num >= 90)
+         {
+            return call;
+         }
+         return die;
+      }
+   }
+}
+
 int main(void)
 {
    User Player;
@@ -526,7 +981,7 @@ int main(void)
 
    int arr[20] = {1, 11, 2, 2, 3, 33, 4, 44, 5, 5,
                   6, 6, 7, 77, 8, 88, 9, 99, 10, 10}; // 11, 33, 44, 77, 88, 99´Â Æ¯¼öÆĞ(±¤, µÅÁö µîµî..)
-
+   int level;
    int num1, num2;
    int num3, num4;
    char user_c, cpu_c;
@@ -535,10 +990,13 @@ int main(void)
    int *phand_num2 = &hand_num2;
    int select = 1;
    int first = 1;
+   char call = 'c', die = 'd';
+   printf("¿øÇÏ½Ã´Â ³­ÀÌµµ¸¦ °ñ¶óÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.\n");
+   printf("1. normal, 2. hard");
+   scanf("%d", &level);
    while (select == 1)
    {
       srand(time(0));
-      printf("\n");
       num1 = rand() % 20;
       while (1)
       {
@@ -578,19 +1036,33 @@ int main(void)
       }
       if (first == 1) // user°¡ ¼±ÆĞÀÏ ¶§
       {
+         printf("´ç½ÅÀÌ ¼±ÀÔ´Ï´Ù\n\n");
          printf("´ç½ÅÀÇ ÆĞ´Â\n");
          user_c = combi(arr[num1], arr[num3], phand_num1);
-         printf("ÀÔ´Ï´Ù.\n");
+         print_card(user_c, phand_num1);
+         printf("ÀÔ´Ï´Ù.\n\n");
          printf("1. Äİ, 2. ´ÙÀÌ : ");
          scanf("%d", &select);
-         if (select == 1)
+         if (select == 1) // user select call
          {
-            printf("\nÄÄÇ»ÅÍÀÇ ÆĞ´Â\n");
-            cpu_c = combi(arr[num2], arr[num4], phand_num2);
-            printf("ÀÔ´Ï´Ù.\n\n");
-            WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
+            printf("CPU°¡ ¼±ÅÃÇÏ´ÂÁß...\n");
+            cpu_c = hide_combi(arr[num2], arr[num4], phand_num2);
+            if (prob_call_by_level(cpu_c, phand_num2) == call)
+            {
+               printf("CPU CHOOSE CALL\n");
+               printf("\nCPUÀÇ ÆĞ´Â\n");
+               print_card(cpu_c, phand_num2);
+               printf("ÀÔ´Ï´Ù.\n\n");
+               WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
+            }
+            else if (prob_call_by_level(cpu_c, phand_num2) == die)
+            {
+               printf("CPU CHOOSE DIE\n\n");
+               printf("user ½Â¸®\n");
+               WinorLose(&Player, 'W', &first);
+            }
          }
-         else
+         else // user select die
          {
             printf("cpu ½Â¸®\n");
             WinorLose(&Player, 'L', &first);
@@ -600,17 +1072,30 @@ int main(void)
       }
       else if (first == 0) // cpu°¡ ¼±ÆĞÀÏ ¶§
       {
+         printf("cpu°¡ ¼±ÀÔ´Ï´Ù\n\n");
          printf("´ç½ÅÀÇ ÆĞ´Â\n");
          user_c = combi(arr[num2], arr[num4], phand_num1);
-         printf("ÀÔ´Ï´Ù.\n");
+         printf("ÀÔ´Ï´Ù.\n\n");
          printf("1. Äİ, 2. ´ÙÀÌ : ");
          scanf("%d", &select);
          if (select == 1)
          {
-            printf("\nÄÄÇ»ÅÍÀÇ ÆĞ´Â\n");
-            cpu_c = combi(arr[num1], arr[num3], phand_num2);
-            printf("ÀÔ´Ï´Ù.\n\n");
-            WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
+            printf("CPU°¡ ¼±ÅÃÇÏ´ÂÁß...\n\n");
+            cpu_c = hide_combi(arr[num1], arr[num3], phand_num2);
+            if (prob_call_by_level(cpu_c, phand_num2) == call)
+            {
+               printf("CPU CHOOSE CALL\n");
+               printf("\nCPUÀÇ ÆĞ´Â\n");
+               print_card(cpu_c, phand_num2);
+               printf("ÀÔ´Ï´Ù.\n\n");
+               WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
+            }
+            else if (prob_call_by_level(cpu_c, phand_num2) == die)
+            {
+               printf("CPU CHOOSE DIE\n\n");
+               printf("user ½Â¸®\n");
+               WinorLose(&Player, 'W', &first);
+            }
          }
          else
          {
