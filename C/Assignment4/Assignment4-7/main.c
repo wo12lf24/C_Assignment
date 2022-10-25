@@ -7,20 +7,17 @@ Assignment4-7
 #include <ctype.h>
 #include <string.h>
 
-char *StrLTrim(char string[100]) //글자는 0을 반환
+char *StrLTrim(char *pstring) //글자는 0을 반환
 {
-    for (int i = 0; i < 100; i++)
+    while (*pstring)
     {
-        if (string[i] == ' ')
+        if (!isspace(*pstring))
         {
-            for (int j = i; j < 99; j++)
-            {
-                printf("%c",string[j]);
-                string[j] = string[j + 1];
-            }
+            return pstring;
         }
+        pstring++;
     }
-    return string;
+    return (char*)"";
 }
 
 void main(void)

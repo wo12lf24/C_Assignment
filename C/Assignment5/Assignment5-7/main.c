@@ -1,5 +1,9 @@
+/*
+Assignment5-7
+학번:2019202003
+이름:김주형
+*/
 #pragma warning(disable : 4996)
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -15,7 +19,7 @@ void main(void)
 
 	tzset();
 
-	t.tm_hour = 70;
+	t.tm_year = 70;
 	t.tm_mon = 0;
 	t.tm_mday = 1;
 	t.tm_hour = atoi(&strTime1[0]);
