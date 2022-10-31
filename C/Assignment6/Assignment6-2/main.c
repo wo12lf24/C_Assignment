@@ -45,7 +45,7 @@ void Week(int num)
 int main(void) // enum을 활용해 출력
 {
     week day;
-    for (day = SUN; day <= SAT; day += 1)
+    for (day = SUN; day <= SAT; day++)
     {
         Week(day);
     }
