@@ -28,14 +28,14 @@ void main(void)
     t.tm_mday = atoi(&strTime[6]);
     strTime[6] = '\0';
 
-    t.tm_mon = atoi(&strTime[4]) -1;
+    t.tm_mon = atoi(&strTime[4]) - 1;
     strTime[4] = '\0';
 
-    t.tm_year = atoi(&strTime[0])-1900;
+    t.tm_year = atoi(&strTime[0]) - 1900;
 
     time = mktime(&t);
 
-     printf("%4d/%02d/%02d %02d:%02d:%02d \n",
-        t.tm_year + 1900, t.tm_mon + 1, t.tm_mday, 
-        t.tm_hour, t.tm_min, t.tm_sec);
+    printf("%4d/%02d/%02d %02d:%02d:%02d \n",
+           t.tm_year + 1900, t.tm_mon + 1, t.tm_mday,
+           t.tm_hour, t.tm_min, t.tm_sec);
 }
