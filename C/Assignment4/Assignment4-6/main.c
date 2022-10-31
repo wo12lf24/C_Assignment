@@ -7,8 +7,8 @@ Assignment4-6
 #include <stdio.h>
 #include <string.h>
 
-void StrUpr(char string[100])
-{
+void StrUpr(char string[100]) //소문자를 대문자로
+{                             //바꾸는 함수
     int len = 0;
     while (string[len] != '\0')
     {

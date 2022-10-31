@@ -7,7 +7,7 @@ Assignment4-8
 #include <string.h>
 #include <ctype.h>
 
-char *StrRTrim(char *pstring)
+char *StrRTrim(char *pstring)//오른쪽 공백을 없애는 함수
 {
     char *start = pstring;
     while (*pstring)
