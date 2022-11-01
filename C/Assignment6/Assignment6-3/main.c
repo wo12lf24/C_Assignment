@@ -113,15 +113,15 @@ void printcard(int p, int turns)
         break;
     case jack:
         printf("|  J  |\n");
-        ace_score += 10;
+        player[p].score += 10;
         break;
     case queen:
         printf("|  Q  |\n");
-        ace_score += 10;
+        player[p].score += 10;
         break;
     case king:
         printf("|  K  |\n");
-        ace_score += 10;
+        player[p].score += 10;
         break;
     default:
         printf("|  %2d  |\n", player[p].card_player[turns].number);
