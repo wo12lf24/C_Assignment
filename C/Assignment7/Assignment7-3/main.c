@@ -23,7 +23,7 @@ int main(void)
     }
     if ((length / 2) == count++) // 길이의 절반값(홀수면 소수점 내림)이 같은 회수(count)와 같으면
     {
-        printf("회문입니다.\n"); //회문입니다.
+        printf("회문 입니다.\n"); //회문입니다.
     }
     else
     {
