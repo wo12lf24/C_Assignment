@@ -1047,7 +1047,7 @@ int main(void)
          {
             printf("CPU가 선택하는중...\n");
             cpu_c = hide_combi(arr[num2], arr[num4], phand_num2);
-            if (prob_call_by_level(cpu_c, phand_num2) == call)
+            if (prob_call_by_level(cpu_c, phand_num2, level) == call)
             {
                printf("CPU CHOOSE CALL\n");
                printf("\nCPU의 패는\n");
@@ -1055,7 +1055,7 @@ int main(void)
                printf("입니다.\n\n");
                WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
             }
-            else if (prob_call_by_level(cpu_c, phand_num2) == die)
+            else if (prob_call_by_level(cpu_c, phand_num2, level) == die)
             {
                printf("CPU CHOOSE DIE\n\n");
                printf("user 승리\n");
@@ -1082,7 +1082,7 @@ int main(void)
          {
             printf("CPU가 선택하는중...\n\n");
             cpu_c = hide_combi(arr[num1], arr[num3], phand_num2);
-            if (prob_call_by_level(cpu_c, phand_num2) == call)
+            if (prob_call_by_level(cpu_c, phand_num2, level) == call)
             {
                printf("CPU CHOOSE CALL\n");
                printf("\nCPU의 패는\n");
@@ -1090,7 +1090,7 @@ int main(void)
                printf("입니다.\n\n");
                WinorLose(&Player, compare(user_c, cpu_c, hand_num1, hand_num2), &first);
             }
-            else if (prob_call_by_level(cpu_c, phand_num2) == die)
+            else if (prob_call_by_level(cpu_c, phand_num2, level) == die)
             {
                printf("CPU CHOOSE DIE\n\n");
                printf("user 승리\n");
