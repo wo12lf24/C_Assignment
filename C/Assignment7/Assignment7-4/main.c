@@ -1,9 +1,40 @@
 #include <stdio.h>
 
 void ShowArr(int (*arr)[4])
-{ }
+{
+    int i, j;
+    printf("----Show Array----\n");
+
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            printf("%5d", arr[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
 void RotateArr(int (*arr)[4])
-{ }
+{
+    int i, j;
+    int temp[4][4];
+
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            temp[j][3 - i] = arr[i][j];
+        }
+    }
+    for (i = 0; i < 4; i++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            arr[j][3 - i] = temp[i][j];
+        }
+    }
+}
 
 int main(void)
 {
