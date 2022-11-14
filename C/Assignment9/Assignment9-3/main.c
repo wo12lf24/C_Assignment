@@ -4,9 +4,8 @@
 
 int main(void)
 {
-
     FILE *fp = fopen("mystery.txt", "r");
-    fread();
+    fread(s1, strlen(s1), 1, fp);
 
     fclose(fp);
 
