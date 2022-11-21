@@ -6,8 +6,8 @@ int main()
     int arr[ARR_NUM] = {123,456,789,234,251};
     int cpy[ARR_NUM]={0};
 
-    FILE* fw = fopen("arr.txt", "w");
-    FILE*fr=fopen("arr.txt","r");
+    FILE* fw = fopen("C_Assignment\\C\\Assignment9\\Assignment9-5\\arr.txt", "w");
+    FILE*fr=fopen("C_Assignment\\C\\Assignment9\\Assignment9-5\\arr.txt","r");
 
     for(int i =0;i<ARR_NUM;i++)
     {
