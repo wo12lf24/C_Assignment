@@ -10,7 +10,7 @@ int main()
     char ch, ch1, ch2;
 
     printf("첫번째 파일 이름 : ");
-    gets(fname1, FILENAME_LEN);
+    gets(fname1);
     fopen_s(&fp1, fname1, "w");
     printf("첫번째 파일 내용 입력(종료는 Ctrl + Z) : \n");
     while ((ch = getchar()) != EOF)
