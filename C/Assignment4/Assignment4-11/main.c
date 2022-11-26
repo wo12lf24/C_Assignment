@@ -8,60 +8,37 @@ Assignment4-11
 #include <string.h>
 #include <stdlib.h>
 
-char* StrLeft(char* string, int num)
+char *StrLeft(char *string, int len)
 {
-	char* copy = NULL;
-	for (int i = 0; i < num; i++)
-	{
-		*(copy + i) = *(string + i);
-	}
-	return copy;
+	char *p = strdup(string);
+	p[len] = 0;
+	return p;
 }
-char* StrMid(char* string, int num)
+char *StrMid(char *string, int pos)
 {
-	char* copy = NULL;
-	int len = 0;
-	while (string[len] != '\0')
-	{
-		len++;
-	}
-	printf("%d", len);
-	for (int i = (len / 2) - 1; i < len; i++)
-	{
-		*(copy + i) = *(string + i);
-	}
-	return copy;
+	return strdup(&string[pos]);
 }
-char* StrRight(char* string, int num)
+char *StrRight(char *string, int len)
 {
-	char* copy = NULL;
-	int len = 0;
-	while (string[len] != '\0')
-	{
-		len++;
-	}
-	for (int i = len - 1; i > num; i--)
-	{
-		*(copy +(len - i - 1)) = *(string + i);
-	}
-	return copy;
+	int n = strlen(string);
+	return strdup(&string[n - len]);
 }
 void main(void)
 {
 	char string[100];
-	char* p;
-
+	char *p;
 	strcpy(string, "abcde");
 	p = StrLeft(string, 2);
-	puts(p); free(p);
+	puts(p);
+	free(p);
 
 	strcpy(string, "abcde");
-	p = StrLeft(string, 2);
-	puts(p); free(p);
+	p = StrRight(string, 2);
+	puts(p);
+	free(p);
 
 	strcpy(string, "abcde");
-    
-	p = StrLeft(string, 2);
-	puts(p); free(p);
-
+	p = StrMid(string, 2);
+	puts(p);
+	free(p);
 }

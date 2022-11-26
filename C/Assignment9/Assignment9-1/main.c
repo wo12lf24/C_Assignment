@@ -1,3 +1,8 @@
+/*
+Assignment9-1
+학번:2019202003
+이름:김주형
+*/
 #pragma warning(diable : 4996)
 #include <stdio.h>
 #include <string.h>
