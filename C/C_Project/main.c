@@ -981,7 +981,7 @@ int main(void)
 
    int arr[20] = {1, 11, 2, 2, 3, 33, 4, 44, 5, 5,
                   6, 6, 7, 77, 8, 88, 9, 99, 10, 10}; // 11, 33, 44, 77, 88, 99는 특수패(광, 돼지 등등..)
-   int level;
+   int level = 0;
    int num1, num2;
    int num3, num4;
    char user_c, cpu_c;
@@ -991,9 +991,26 @@ int main(void)
    int select = 1;
    int first = 1;
    char call = 'c', die = 'd';
-   printf("원하시는 난이도를 골라주시기 바랍니다.\n");
-   printf("1. normal, 2. hard");
-   scanf("%d", &level);
+   while (level != 1 && level != 2)
+   {
+      printf("원하시는 난이도를 골라주시기 바랍니다.\n");
+      printf("1. normal, 2. hard: ");
+      scanf("%d", &level);
+      if (level == 1)
+      {
+         printf("normal을 고르셨습니다.\n");
+      }
+      else if (level == 2)
+      {
+         printf("hard를 고르셨습니다.\n");
+      }
+      else
+      {
+         printf("잘못된 난이도입니다.\n");
+         printf("다시 골라주시기 바랍니다.\n");
+      }
+   }
+
    while (select == 1)
    {
       srand(time(0));
