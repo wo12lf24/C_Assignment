@@ -1,3 +1,8 @@
+/*
+Assignment9-6
+학번:2019202003
+이름:김주형
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
@@ -10,7 +15,6 @@ int main()
 
     while (fgets(str, sizeof(str), fr) != 0)
     {
-
         for (int j = 0; j < 100; j++)
             if (str[j] >= 'A' && str[j] <= 'Z') str[j] += 32;
 

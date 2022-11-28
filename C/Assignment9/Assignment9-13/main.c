@@ -1,3 +1,8 @@
+/*
+Assignment9-13
+학번:2019202003
+이름:김주형
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>

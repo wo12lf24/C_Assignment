@@ -1,3 +1,8 @@
+/*
+Assignment9-5
+학번:2019202003
+이름:김주형
+*/
 #include <stdio.h>
 #define ARR_NUM 5
 
