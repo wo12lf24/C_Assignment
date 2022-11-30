@@ -12,32 +12,36 @@ void main()
 {
     int j, sIndex, exLen, templ, tempj;
     bool isSame;
-    scanf("%s%s",origin,ex);
-    exLen=strlen(ex)-1;
-    for(int i =sIndex=0;origin[i];i++)
+    scanf("%s%s", origin, ex);
+    exLen = strlen(ex) - 1;
+    for (int i = sIndex = 0; origin[i]; i++)
     {
-        stack[sIndex++]=origin[i];
-        if(stack[sIndex-1]==ex[exLen])
+        stack[sIndex++] = origin[i];
+        if (stack[sIndex - 1] == ex[exLen])
         {
-            isSame=true;
-            for(j=exLen, tempj=1;j>=0;j--)
-            if(sIndex<exLen+1||ex[j]!=stack[sIndex-tempj++])
+            isSame = true;
+            for (j = exLen, tempj = 1; j >= 0; j--)
+                if (sIndex < exLen + 1 || ex[j] != stack[sIndex - tempj++])
+                {
+                    isSame = false;
+                    break;
+                }
+            if (isSame)
+                stack[sIndex -= exLen + 1] = 0;
+        }
+    }
+    if (stack[sIndex - 1] == ex[exLen])
+    {
+        isSame = true;
+        for (j = exLen, tempj = 1; j >= 0; j--)
+            if (sIndex - 1 < exLen || ex[j] != stack[sIndex - tempj++])
             {
-                isSame=false;
+                isSame = false;
                 break;
             }
-            if(isSame)stack[sIndex-=exLen+1]=0;
-        }
+        if (isSame)
+            stack[sIndex -= exLen + 1] = 0;
     }
-    if(stack[sIndex-1]==ex[exLen])
-    {
-        isSame=true;
-        for(j=exLen,tempj=1;j>=0;j--)
-        if(sIndex-1<exLen||ex[j]!=stack[sIndex-tempj++])
-        {
-            isSame=false;
-            break;
-        }
-        if()
-    }
+    stack[sIndex] = 0;
+    puts(stack[0] == 0 ? "END" : stack);
 }
